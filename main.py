@@ -9,6 +9,10 @@ def main():
     print("Starting Asteroids!")
     print("Screen width:",SCREEN_WIDTH)
     print("Screen height:",SCREEN_HEIGHT)
+    
+    clock = pygame.time.Clock()
+    dt = 0
+    
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     running = True
@@ -16,8 +20,11 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+        
         screen.fill((0, 0, 0))
         pygame.display.flip()
+        
+        dt = clock.tick(60) / 1000.0
 
 if __name__ == "__main__":
     main()
