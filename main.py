@@ -1,3 +1,4 @@
+import sys
 import pygame
 from constants import *
 from player import Player  # Make sure you have a player.py file with a Player class
@@ -29,7 +30,12 @@ def main():
                 running = False
         
         updateable_sprites.update(dt)
-
+        
+        for asteroid in asteroid_sprites:
+            if asteroid.collides_with(player):
+                print("Game over!")
+                sys.exit()
+        
         screen.fill("black")
         
         for obj in drawable_sprites:
